@@ -1,7 +1,8 @@
 # Clean Code in Python 学习案例集
 
 ## 项目简介
-本项目旨在通过编写一系列功能案例，实践《Clean Code in Python》一书中的最佳实践，逐步优化代码质量。目标是在实际案例中练习编写简洁、可维护、高效的python代码。
+
+在实际案例中，实践《Clean Code in Python》中的编码原则，练习编写简洁、可维护、高效的python代码。
 
 ## 学习参考
 
