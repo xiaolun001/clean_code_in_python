@@ -4,6 +4,9 @@
 本项目旨在通过编写一系列功能案例，实践《Clean Code in Python》一书中的最佳实践，逐步优化代码质量。目标是在实际案例中练习编写简洁、可维护、高效的python代码。
 
 ## 学习参考
+
+建议使用 Poetry 管理虚拟环境, 具体教程见文档[poetry](doc/poetry.md)
+
 1. [Clean Code in Python - Second Edition: Develop maintainable and efficient code](https://www.amazon.com/Clean-Code-Python-maintainable-efficient/dp/1800560214)
 2. [Tips for clean code in Python](https://pybit.es/articles/tips-for-clean-code-in-python/)
 

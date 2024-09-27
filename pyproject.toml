@@ -12,6 +12,8 @@ target-version = ['py39', 'py310']
 
 [tool.poetry.dependencies]
 python = "^3.9"
+fire = "0.4.0"
+loguru = "0.6.0"
 
 
 [build-system]
