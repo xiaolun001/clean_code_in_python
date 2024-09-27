@@ -12,3 +12,13 @@
 
 ## 贡献
 欢迎提交 issue 和 pull request，与我一起讨论如何进一步优化代码。
+
+### 提交PR须知
+
+1. 提交PR之前，请对修改的代码执行如下命令:
+    ```bash
+    black your_py_file_path_or_dir
+    # 例如
+    black ./code_executor
+    black ./code_executor/sync_executor.py
+    ```

@@ -36,6 +36,7 @@ poetry shell
 ```bash
 cd your_project_root
 poetry add <package-name>
+poetry add black=24.4.2
 ```
 Poetry 会自动更新 pyproject.toml 并安装相应的依赖。
 
