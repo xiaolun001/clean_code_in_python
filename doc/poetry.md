@@ -35,7 +35,7 @@ poetry add <package-name>
 ```
 Poetry 会自动更新 pyproject.toml 并安装相应的依赖。
 
-## 1.6 
+## 1.6 退出虚拟环境
 你可以通过运行以下命令退出虚拟环境：
 ```bash
 exit
