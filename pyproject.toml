@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "clean-code"
+version = "0.1.0"
+description = "clean code in python learning notes."
+authors = ["Bangbang <liubangbang86@gmail.com>"]
+readme = "README.md"
+
+[tool.black]
+line-length = 120
+required-version = '24.4.2'
+target-version = ['py39', 'py310']
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
