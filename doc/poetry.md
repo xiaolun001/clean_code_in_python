@@ -10,6 +10,7 @@ pip install poetry
 ## 1.2 初始化 pyproject.toml
 在项目根目录下运行以下命令来初始化 pyproject.toml 文件：
 ```bash
+cd your_project_root
 poetry init
 ```
 Poetry 会引导你填写项目名称、版本、作者、依赖等信息，完成后会生成 pyproject.toml 文件。
