@@ -39,7 +39,8 @@ class SyncCodeExecutor(object):
             assert self.save_obj_cmd is not None, "save_obj_cmd should be string cmd when is_save_obj is True!"
             assert self.load_obj_cmd is not None, "load_obj_cmd should be string cmd when is_save_obj is True!"
             assert self.work_dir is not None, "work_dir should be a path when is_save_obj is True!"
-        self._executor_save_path = str(Path(self.work_dir) / "executor.json")
+            Path(self.work_dir).mkdir(parents=True, exist_ok=True)
+        self._executor_save_path = str(Path(self.work_dir) / "executor.json") if self.work_dir else ""
 
     def manage_work_dir(self, cmd: Literal["c", "d"] = "c"):
         """管理cmd变量的共享文件目录"""
@@ -91,6 +92,7 @@ class SyncCodeExecutor(object):
 
     def save_executor(self):
         """保存Executor对象"""
+        assert self.work_dir, "work_dir must be set a value, not None."
         executor_state = {k: v for k, v in self.__dict__.items() if "__" not in k}
         with open(self._executor_save_path, "w") as f:
             json.dump(executor_state, f, sort_keys=True, indent=4)
@@ -160,7 +162,7 @@ class SyncCodeExecutor(object):
                 if prefix.startswith("STDOUT:"):
                     stdout += "\n" + line.strip() if "END_OF_EXECUTION" not in line else "\n"
 
-                if "END_OF_EXECUTION" not in line and "HISTORY_VARS" not in line:
+                if "END_OF_EXECUTION" not in line:
                     print(f"{prefix}{line}")
 
                 if "END_OF_EXECUTION" in line:
@@ -189,7 +191,7 @@ class SyncCodeExecutor(object):
             full_command += self.save_obj_cmd.format(self.obj_save_path(cmd_id))
 
         full_command += self.print_cmd.format("END_OF_EXECUTION")
-        logger.info(f"Sending command: {full_command.strip()}")
+        logger.info(f"Sending command: {full_command}")
 
         try:
             self.__process.stdin.write(full_command)
@@ -197,7 +199,7 @@ class SyncCodeExecutor(object):
         except BrokenPipeError:
             logger.warning("Process has terminated. Restarting...")
             self.start_process()
-            self.__process.stdin.write(full_command)
+            self.__process.stdin.write(full_command.encode())
             self.__process.stdin.flush()
         except KeyboardInterrupt:
             logger.warning("\nReceived keyboard interrupt. Terminating...")
@@ -215,9 +217,14 @@ class SyncCodeExecutor(object):
             cmds = yield
             if cmds is None:
                 continue
+
+            if isinstance(cmds, str):
+                cmds = [cmds]
+
             try:
                 self._run(cmds)
-            except Exception:
+            except Exception as e:
+                logger.error(e)
                 break
 
 
