@@ -1,6 +1,8 @@
 # 使用 Poetry 管理虚拟环境
 通过 pyproject.toml 文件来管理 Python 项目的依赖和配置是现代 Python 项目的常见做法之一，特别是借助工具如 Poetry，你可以使用这些工具根据 pyproject.toml 创建和管理虚拟环境。
 
+# 1. Poetry 安装和简单使用
+
 ## 1.1 安装 Poetry
 
 ```bash
@@ -45,3 +47,15 @@ Poetry 会自动更新 pyproject.toml 并安装相应的依赖。
 ```bash
 exit
 ```
+
+# 2. 开发
+
+## 2.1 包安装
+进入项目根目录，即具有pyproject.toml的目录，激活虚拟环境并执行包安装
+```bash
+cd your_project_root
+poetry shell
+poetry install
+```
+
+

@@ -1,21 +1,30 @@
 [tool.poetry]
-name = "clean-code"
+name = "code-executor"
 version = "0.1.0"
-description = "clean code in python learning notes."
+description = "code executor for python."
 authors = ["Bangbang <liubangbang86@gmail.com>"]
 readme = "README.md"
 
 [tool.black]
 line-length = 120
 required-version = '24.4.2'
-target-version = ['py39', 'py310']
+
+# 使用数组格式定义包
+[[tool.poetry.packages]]
+include = "code_executor"
+from = ".."
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.11"
 fire = "0.4.0"
 loguru = "0.6.0"
 black = "24.4.2"
-
+pytest = "8.2"
+pytest-asyncio = "0.24.0"
+numpy = "^2.1.1"
+pandas = "^2.2.3"
+dill = "^0.3.8"
+matplotlib = "^3.9.2"
 
 [build-system]
 requires = ["poetry-core"]
