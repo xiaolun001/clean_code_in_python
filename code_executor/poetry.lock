@@ -185,12 +185,12 @@ profile = ["gprof2dot (>=2022.7.29)"]
 
 [[package]]
 name = "fire"
-version = "0.4.0"
+version = "0.6.0"
 description = "A library for automatically generating command line interfaces."
 optional = false
 python-versions = "*"
 files = [
-    {file = "fire-0.4.0.tar.gz", hash = "sha256:c5e2b8763699d1142393a46d0e3e790c5eb2f0706082df8f647878842c216a62"},
+    {file = "fire-0.6.0.tar.gz", hash = "sha256:54ec5b996ecdd3c0309c800324a0703d6da512241bc73b553db959d98de0aa66"},
 ]
 
 [package.dependencies]
@@ -921,4 +921,4 @@ dev = ["black (>=19.3b0)", "pytest (>=4.6.2)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "f67fd1199c5a9ccd3a06a8b26b60ad175a0e4ce62c731cb86c9806ca980ea491"
+content-hash = "572834d96de9afbfdb436947e3688bc9450be105ce459ba6e1eaaa3d73882441"
