@@ -45,7 +45,7 @@ pip install poetry
 poetry install
 ```
 当你在Terminal上你看到如下内容时，说明已经安装成功：
-![image](imgs/poetry_install.png)
+![image](imgs/poetry_install.jpeg)
 
 安装完成后，通过如下命令进入code_executor的虚拟环境。
 ```bash
@@ -59,4 +59,4 @@ pytest -v test/code_executor/test_pyexe.py
 ```
 当你看到如下内容，说明你的环境配置没有任何问题，而且code_executor也能正常使用。
 
-![code_executor_test](imgs/code_executor_test.png)
+![code_executor_test](imgs/code_executor_test.jpeg)
