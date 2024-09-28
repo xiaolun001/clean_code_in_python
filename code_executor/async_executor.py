@@ -34,6 +34,7 @@ class AsyncCodeExecutor(object):
             assert self.save_obj_cmd is not None, "save_obj_cmd should be string cmd when is_save_obj is True!"
             assert self.load_obj_cmd is not None, "load_obj_cmd should be string cmd when is_save_obj is True!"
             assert self.work_dir is not None, "work_dir should be a path when is_save_obj is True!"
+            Path(self.work_dir).mkdir(parents=True, exist_ok=True)
         self._executor_save_path = str(Path(self.work_dir) / "executor.json") if self.work_dir else ""
 
     def manage_work_dir(self, cmd: Literal["c", "d"] = "c"):

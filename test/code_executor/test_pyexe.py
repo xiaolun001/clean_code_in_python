@@ -3,7 +3,7 @@ from code_executor.pyexe import PyExecutor, AsyncPyExecutor
 
 
 def test_save():
-    pyer = PyExecutor("./pyexe_test", True)
+    pyer = PyExecutor("./test/executor_objects/pyexe", True)
     # 初始化生成器
     python_code_gen = pyer.run()
     next(python_code_gen)  # 启动生成器
@@ -21,7 +21,7 @@ def test_save():
 
 
 def test_load():
-    work_dir = "./pyexe_test"
+    work_dir = "./test/executor_objects/pyexe"
     pyer = PyExecutor(work_dir).load()
     # 初始化生成器
     python_code_gen = pyer.run()
@@ -38,7 +38,7 @@ def test_load():
 
 @pytest.mark.asyncio
 async def test_async_save():
-    pyer = AsyncPyExecutor("./async_pyexe_test", True)
+    pyer = AsyncPyExecutor("./test/executor_objects/aysnc_pyexe", True)
     # 初始化生成器
     python_code_gen = pyer.run()
     await python_code_gen.asend(None)  # 启动生成器
@@ -56,7 +56,7 @@ async def test_async_save():
 
 @pytest.mark.asyncio
 async def test_async_load():
-    work_dir = "./async_pyexe_test"
+    work_dir = "./test/executor_objects/aysnc_pyexe"
     pyer = AsyncPyExecutor(work_dir).load()
     # 初始化生成器
     python_code_gen = pyer.run()
